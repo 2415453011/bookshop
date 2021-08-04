@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.OrderItemDao">
+    <insert id="saveBatchOrderItem">
+insert into t_order_item(name,price,total_money,count,order_id)
+values(#{name},#{price},#{totalMoney},#{count},#{orderId})
+</insert>
+
+    <insert id="saveOrderItem">
+insert into t_order_item(name,price,total_money,count,order_id)
+values(#{name},#{price},#{totalMoney},#{count},#{orderId})
+    </insert>
+    <select id="getOrderItems" resultType="OrderItem">
+select id id,name name,price price,total_money totalMoney,count count,order_id orderId
+from t_order_item where order_id=#{orderId}
+    </select>
+</mapper>
